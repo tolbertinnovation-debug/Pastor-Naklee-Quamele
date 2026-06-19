@@ -6,14 +6,17 @@ Pages, Netlify, Vercel, or any web server).
 
 ## ✨ Features
 
-- **Modern, polished design** — refined navy & gold palette, serif/sans type pairing
-  (Fraunces + Inter), generous spacing, and tasteful motion.
+- **Premium, polished design** — refined navy & gold palette, serif/sans type pairing
+  (Fraunces + Inter), layered hero with animated gradient orbs, and tasteful motion.
 - **Fully responsive** — looks great from mobile to widescreen, with a mobile nav drawer.
-- **Sections** — Hero, About, Ministries, Sermons, Events, Contact, and Footer.
+- **Rich sections** — Hero (with animated counters), value marquee, About, Ministries,
+  Sermons (with a featured message), Testimonials, a Giving call-to-action band, Events,
+  Contact, and Newsletter signup.
 - **Accessible** — skip link, semantic landmarks, keyboard-friendly nav, `aria` labels,
-  and `prefers-reduced-motion` support.
+  and full `prefers-reduced-motion` support.
 - **Performance-minded** — no frameworks, no build step. Just HTML, CSS, and a little JS.
-- **Subtle interactions** — sticky header, scroll-reveal animations, and a demo contact form.
+- **Polished interactions** — sticky header, scroll-progress bar, scroll-reveal animations,
+  animated statistics, back-to-top button, and demo contact/newsletter forms.
 
 ## 📁 Project structure
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0f1b2d" />
+  <meta name="theme-color" content="#0b1424" />
   <title>Pastor Naklee Quamele — Faith, Hope &amp; Community</title>
   <meta name="description" content="Official website of Pastor Naklee Quamele — sermons, ministry, events, and a community grounded in faith, hope, and love." />
 
@@ -14,11 +14,14 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
   <!-- ===== Header / Nav ===== -->
   <header class="site-header" id="top">
@@ -39,6 +42,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#ministry">Ministry</a></li>
           <li><a href="#sermons">Sermons</a></li>
+          <li><a href="#voices">Voices</a></li>
           <li><a href="#events">Events</a></li>
           <li><a href="#contact" class="nav-cta">Connect</a></li>
         </ul>
@@ -49,25 +53,39 @@
   <main id="main">
     <!-- ===== Hero ===== -->
     <section class="hero">
-      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-bg" aria-hidden="true">
+        <span class="orb orb-1"></span>
+        <span class="orb orb-2"></span>
+      </div>
       <div class="container hero-inner">
-        <p class="eyebrow reveal">Welcome home</p>
-        <h1 class="hero-title reveal">Faith that moves. <br />Hope that heals.</h1>
+        <p class="eyebrow eyebrow-light reveal"><span class="eyebrow-dot"></span> Welcome home</p>
+        <h1 class="hero-title reveal">Faith that moves.<br /><em>Hope</em> that heals.</h1>
         <p class="hero-lead reveal">
           Join Pastor Naklee Quamele for a journey of purpose, grace, and community —
           where every story matters and every soul is welcome.
         </p>
         <div class="hero-actions reveal">
           <a href="#sermons" class="btn btn-primary">Watch a Sermon</a>
-          <a href="#events" class="btn btn-ghost">Plan Your Visit</a>
+          <a href="#events" class="btn btn-ghost">Plan Your Visit <span aria-hidden="true">→</span></a>
         </div>
         <dl class="hero-stats reveal">
-          <div><dt>15+</dt><dd>Years in Ministry</dd></div>
-          <div><dt>3</dt><dd>Weekly Gatherings</dd></div>
-          <div><dt>1</dt><dd>Loving Community</dd></div>
+          <div><dt data-count="15" data-suffix="+">0</dt><dd>Years in Ministry</dd></div>
+          <div><dt data-count="3">0</dt><dd>Weekly Gatherings</dd></div>
+          <div><dt data-count="2500" data-suffix="+">0</dt><dd>Lives Touched</dd></div>
         </dl>
       </div>
+      <div class="hero-scroll reveal" aria-hidden="true"><span></span>Scroll</div>
     </section>
+
+    <!-- ===== Trust / verse marquee ===== -->
+    <div class="verse-band">
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>Grace</span><span class="sep">✦</span><span>Hope</span><span class="sep">✦</span><span>Faith</span><span class="sep">✦</span><span>Community</span><span class="sep">✦</span><span>Love</span><span class="sep">✦</span>
+          <span>Grace</span><span class="sep">✦</span><span>Hope</span><span class="sep">✦</span><span>Faith</span><span class="sep">✦</span><span>Community</span><span class="sep">✦</span><span>Love</span><span class="sep">✦</span>
+        </div>
+      </div>
+    </div>
 
     <!-- ===== About ===== -->
     <section class="section" id="about">
@@ -77,29 +95,32 @@
             <span class="photo-fallback">NQ</span>
           </div>
           <div class="about-badge">
-            <strong>Shepherd</strong>
-            <span>Servant leadership</span>
+            <span class="about-badge-icon" aria-hidden="true">✦</span>
+            <div>
+              <strong>Servant Heart</strong>
+              <span>Leading by love</span>
+            </div>
           </div>
         </div>
         <div class="about-copy reveal">
           <p class="eyebrow">About the Pastor</p>
           <h2>A heart for people, a calling to serve.</h2>
-          <p>
+          <p class="lead-text">
             Pastor Naklee Quamele has dedicated his life to walking alongside others through
-            every season — joy and grief, doubt and breakthrough. His teaching is rooted in
-            scripture, delivered with warmth, and aimed at one thing: helping people encounter
-            a love that transforms.
+            every season — joy and grief, doubt and breakthrough.
           </p>
           <p>
-            Whether from the pulpit or across a kitchen table, Pastor Naklee believes the church
-            is not a building but a family — one that shows up, listens deeply, and carries
-            hope into the everyday.
+            His teaching is rooted in scripture, delivered with warmth, and aimed at one thing:
+            helping people encounter a love that transforms. Whether from the pulpit or across a
+            kitchen table, Pastor Naklee believes the church is not a building but a family — one
+            that shows up, listens deeply, and carries hope into the everyday.
           </p>
           <ul class="about-points">
-            <li><span aria-hidden="true">●</span> Biblical, grace-centered teaching</li>
-            <li><span aria-hidden="true">●</span> Pastoral care &amp; counseling</li>
-            <li><span aria-hidden="true">●</span> Outreach &amp; community service</li>
+            <li><span class="tick" aria-hidden="true">✓</span> Biblical, grace-centered teaching</li>
+            <li><span class="tick" aria-hidden="true">✓</span> Pastoral care &amp; counseling</li>
+            <li><span class="tick" aria-hidden="true">✓</span> Outreach &amp; community service</li>
           </ul>
+          <a href="#contact" class="link-arrow">Meet the pastor <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>
@@ -117,21 +138,25 @@
             <div class="card-icon" aria-hidden="true">🙏</div>
             <h3>Worship &amp; Prayer</h3>
             <p>Gather in spirit and truth. Weekly worship and prayer that center the heart and renew the mind.</p>
+            <span class="card-tag">Sundays · 10 AM</span>
           </article>
           <article class="card reveal">
             <div class="card-icon" aria-hidden="true">📖</div>
             <h3>Bible Study</h3>
             <p>Dig deeper together. Small groups exploring scripture with honesty, questions, and real life.</p>
+            <span class="card-tag">Wednesdays · 7 PM</span>
           </article>
           <article class="card reveal">
             <div class="card-icon" aria-hidden="true">🤝</div>
             <h3>Community Outreach</h3>
             <p>Faith in action. Serving the city through food drives, mentorship, and hands-on care.</p>
+            <span class="card-tag">Monthly</span>
           </article>
           <article class="card reveal">
             <div class="card-icon" aria-hidden="true">🌱</div>
             <h3>Youth &amp; Family</h3>
             <p>Raising the next generation. Safe, joyful spaces for kids, teens, and families to thrive.</p>
+            <span class="card-tag">All ages</span>
           </article>
         </div>
       </div>
@@ -140,18 +165,23 @@
     <!-- ===== Sermons ===== -->
     <section class="section" id="sermons">
       <div class="container">
-        <header class="section-head reveal">
-          <p class="eyebrow">Latest messages</p>
-          <h2>Sermons &amp; teaching</h2>
-          <p class="section-intro">Catch up on recent messages — wherever you are, whenever you need them.</p>
+        <header class="section-head section-head-row reveal">
+          <div>
+            <p class="eyebrow">Latest messages</p>
+            <h2>Sermons &amp; teaching</h2>
+          </div>
+          <a href="#contact" class="btn btn-outline">View all sermons</a>
         </header>
         <div class="sermons">
-          <article class="sermon reveal">
-            <div class="sermon-thumb"><span class="play" aria-hidden="true">▶</span></div>
+          <article class="sermon sermon-feature reveal">
+            <div class="sermon-thumb">
+              <span class="badge-live">Latest</span>
+              <span class="play" aria-hidden="true">▶</span>
+            </div>
             <div class="sermon-body">
-              <p class="sermon-meta">Series · Anchored</p>
+              <p class="sermon-meta">Series · Anchored &nbsp;·&nbsp; 38 min</p>
               <h3>Hope When the Waters Rise</h3>
-              <p>Finding steady ground when life feels uncertain — a study in Psalm 46.</p>
+              <p>Finding steady ground when life feels uncertain — a study in Psalm 46 about the peace that holds when everything shifts.</p>
               <a href="#contact" class="link-arrow">Listen now <span aria-hidden="true">→</span></a>
             </div>
           </article>
@@ -161,7 +191,7 @@
               <p class="sermon-meta">Series · Anchored</p>
               <h3>The Grace That Finds Us</h3>
               <p>No one is too far. A message on the relentless love that pursues us home.</p>
-              <a href="#contact" class="link-arrow">Listen now <span aria-hidden="true">→</span></a>
+              <a href="#contact" class="link-arrow">Listen <span aria-hidden="true">→</span></a>
             </div>
           </article>
           <article class="sermon reveal">
@@ -170,9 +200,51 @@
               <p class="sermon-meta">Series · Everyday Faith</p>
               <h3>Loving Your Neighbor on Purpose</h3>
               <p>What it looks like to carry compassion into your street, your work, your week.</p>
-              <a href="#contact" class="link-arrow">Listen now <span aria-hidden="true">→</span></a>
+              <a href="#contact" class="link-arrow">Listen <span aria-hidden="true">→</span></a>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Testimonials / Voices ===== -->
+    <section class="section section-muted" id="voices">
+      <div class="container">
+        <header class="section-head section-head-center reveal">
+          <p class="eyebrow">Voices from the community</p>
+          <h2>Lives changed, one story at a time</h2>
+        </header>
+        <div class="quotes">
+          <figure class="quote reveal">
+            <div class="quote-mark" aria-hidden="true">&ldquo;</div>
+            <blockquote>Pastor Naklee met our family in our hardest season and never let go. His words gave us hope when we had none left.</blockquote>
+            <figcaption><span class="avatar" aria-hidden="true">M</span><span><strong>Maria L.</strong><small>Member since 2019</small></span></figcaption>
+          </figure>
+          <figure class="quote reveal">
+            <div class="quote-mark" aria-hidden="true">&ldquo;</div>
+            <blockquote>I came in a stranger and left as family. This community taught me what grace actually feels like.</blockquote>
+            <figcaption><span class="avatar" aria-hidden="true">J</span><span><strong>James O.</strong><small>Young Adults Group</small></span></figcaption>
+          </figure>
+          <figure class="quote reveal">
+            <div class="quote-mark" aria-hidden="true">&ldquo;</div>
+            <blockquote>Every message feels like it was written for exactly where I am. Honest, warm, and full of truth.</blockquote>
+            <figcaption><span class="avatar" aria-hidden="true">A</span><span><strong>Amara T.</strong><small>Volunteer, Outreach</small></span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Giving / CTA band ===== -->
+    <section class="cta-band">
+      <div class="container cta-inner reveal">
+        <div class="cta-copy">
+          <p class="eyebrow eyebrow-light">Partner with the mission</p>
+          <h2>Your generosity changes lives.</h2>
+          <p>Every gift fuels outreach, supports families in need, and keeps the doors open for whoever walks through them next.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="#contact" class="btn btn-primary btn-lg">Give Today</a>
+          <a href="#about" class="btn btn-ghost btn-lg">Learn how it helps</a>
         </div>
       </div>
     </section>
@@ -220,7 +292,7 @@
         <div class="contact-copy reveal">
           <p class="eyebrow">Let's connect</p>
           <h2>We'd love to hear from you</h2>
-          <p>
+          <p class="lead-text">
             Have a question, a prayer request, or just want to say hello? Reach out — Pastor Naklee
             and the team read every message.
           </p>
@@ -229,16 +301,34 @@
             <li><span class="ci" aria-hidden="true">☎</span> <a href="tel:+10000000000">+1 (000) 000-0000</a></li>
             <li><span class="ci" aria-hidden="true">⌖</span> 123 Grace Avenue, Your City</li>
           </ul>
+          <div class="socials" aria-label="Social media">
+            <a href="#" aria-label="Facebook" class="social">f</a>
+            <a href="#" aria-label="Instagram" class="social">ig</a>
+            <a href="#" aria-label="YouTube" class="social">▶</a>
+            <a href="#" aria-label="Podcast" class="social">♪</a>
+          </div>
         </div>
 
         <form class="contact-form reveal" onsubmit="return false">
-          <div class="field">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+          <div class="field-row">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+            </div>
           </div>
           <div class="field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+            <label for="subject">I'm reaching out about</label>
+            <select id="subject" name="subject">
+              <option>A prayer request</option>
+              <option>Planning a visit</option>
+              <option>Getting involved / volunteering</option>
+              <option>Giving &amp; partnership</option>
+              <option>Something else</option>
+            </select>
           </div>
           <div class="field">
             <label for="message">Message</label>
@@ -246,6 +336,21 @@
           </div>
           <button type="submit" class="btn btn-primary btn-block">Send Message</button>
           <p class="form-note" id="form-note" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===== Newsletter ===== -->
+    <section class="newsletter">
+      <div class="container newsletter-inner reveal">
+        <div>
+          <h3>Stay encouraged</h3>
+          <p>Weekly reflections and updates, straight to your inbox. No spam — just hope.</p>
+        </div>
+        <form class="newsletter-form" onsubmit="return false">
+          <label class="visually-hidden" for="news-email">Email address</label>
+          <input id="news-email" type="email" placeholder="Enter your email" required />
+          <button type="submit" class="btn btn-primary">Subscribe</button>
         </form>
       </div>
     </section>
@@ -265,6 +370,7 @@
         <a href="#about">About</a>
         <a href="#ministry">Ministry</a>
         <a href="#sermons">Sermons</a>
+        <a href="#voices">Voices</a>
         <a href="#events">Events</a>
         <a href="#contact">Connect</a>
       </nav>
@@ -277,6 +383,8 @@
       </div>
     </div>
   </footer>
+
+  <a href="#top" class="back-to-top" id="back-to-top" aria-label="Back to top">↑</a>
 
   <script src="script.js"></script>
 </body>

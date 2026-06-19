@@ -4,14 +4,26 @@
 (function () {
   "use strict";
 
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   /* ---- Current year ---- */
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ---- Sticky header shadow on scroll ---- */
+  /* ---- Sticky header + scroll progress + back-to-top ---- */
   var header = document.querySelector(".site-header");
+  var progress = document.getElementById("scroll-progress");
+  var toTop = document.getElementById("back-to-top");
+
   var onScroll = function () {
-    if (header) header.classList.toggle("scrolled", window.scrollY > 8);
+    var y = window.scrollY;
+    if (header) header.classList.toggle("scrolled", y > 8);
+    if (toTop) toTop.classList.toggle("show", y > 500);
+    if (progress) {
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      progress.style.width = (max > 0 ? (y / max) * 100 : 0) + "%";
+    }
   };
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
@@ -33,11 +45,9 @@
       toggle.setAttribute("aria-expanded", String(open));
       toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
     });
-    // Close when a link is tapped
     menu.addEventListener("click", function (e) {
       if (e.target.closest("a")) closeMenu();
     });
-    // Close on Escape
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape") closeMenu();
     });
@@ -45,7 +55,7 @@
 
   /* ---- Scroll reveal ---- */
   var revealEls = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window && revealEls.length) {
+  if (!reduceMotion && "IntersectionObserver" in window && revealEls.length) {
     var io = new IntersectionObserver(
       function (entries, obs) {
         entries.forEach(function (entry) {
@@ -62,18 +72,55 @@
     revealEls.forEach(function (el) { el.classList.add("is-visible"); });
   }
 
+  /* ---- Animated stat counters ---- */
+  var counters = document.querySelectorAll(".hero-stats dt[data-count]");
+  var animateCount = function (el) {
+    var target = parseInt(el.getAttribute("data-count"), 10) || 0;
+    var suffix = el.getAttribute("data-suffix") || "";
+    if (reduceMotion) { el.textContent = target.toLocaleString() + suffix; return; }
+    var start = null;
+    var dur = 1600;
+    var step = function (ts) {
+      if (start === null) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+      el.textContent = Math.round(target * eased).toLocaleString() + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  if (counters.length && "IntersectionObserver" in window) {
+    var co = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { animateCount(entry.target); obs.unobserve(entry.target); }
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(function (el) { co.observe(el); });
+  } else {
+    counters.forEach(animateCount);
+  }
+
   /* ---- Contact form (front-end demo feedback) ---- */
   var form = document.querySelector(".contact-form");
   var note = document.getElementById("form-note");
   if (form && note) {
     form.addEventListener("submit", function () {
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
+      if (!form.checkValidity()) { form.reportValidity(); return; }
       note.textContent = "Thank you! Your message has been received. We'll be in touch soon.";
       form.reset();
       setTimeout(function () { note.textContent = ""; }, 6000);
+    });
+  }
+
+  /* ---- Newsletter (front-end demo feedback) ---- */
+  var news = document.querySelector(".newsletter-form");
+  if (news) {
+    news.addEventListener("submit", function () {
+      var input = news.querySelector("input");
+      if (input && !input.checkValidity()) { input.reportValidity(); return; }
+      var btn = news.querySelector("button");
+      if (btn) { btn.textContent = "Subscribed ✓"; btn.disabled = true; }
+      news.reset();
     });
   }
 })();
